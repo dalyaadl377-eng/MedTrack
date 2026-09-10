@@ -1,0 +1,1131 @@
+/* =========================================================
+   MEDTRACK SPLASH
+   ONE CONTINUOUS ANIMATION — 4.3 SECONDS
+========================================================= */
+
+.splash-page {
+  position: fixed;
+  inset: 0;
+
+  width: 100%;
+  height: 100vh;
+
+  overflow: hidden;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background:
+    radial-gradient(
+      circle at 50% 48%,
+      #06131b 0%,
+      #020910 38%,
+      #01050a 68%,
+      #000000 100%
+    );
+
+  z-index: 9999;
+}
+
+
+/* =========================================================
+   MAIN CONTENT
+========================================================= */
+
+.splash-content {
+  position: relative;
+
+  width: min(1200px, 100vw);
+  height: 100vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+
+/* =========================================================
+   CENTER GLOW
+========================================================= */
+
+.splash-glow {
+  position: absolute;
+
+  width: 480px;
+  height: 480px;
+
+  left: 50%;
+  top: 50%;
+
+  transform: translate(-50%, -50%);
+
+  border-radius: 50%;
+
+  background: rgba(16, 218, 232, 0.08);
+
+  filter: blur(110px);
+
+  opacity: 0;
+
+  animation: finalGlow 4.3s ease forwards;
+
+  pointer-events: none;
+}
+
+@keyframes finalGlow {
+  0% {
+    opacity: 0;
+  }
+
+  35% {
+    opacity: 0;
+  }
+
+  50% {
+    opacity: 0.65;
+  }
+
+  75% {
+    opacity: 0.4;
+  }
+
+  100% {
+    opacity: 0.28;
+  }
+}
+
+
+/* =========================================================
+   GRID
+========================================================= */
+
+.splash-grid {
+  position: absolute;
+  inset: 0;
+
+  opacity: 0;
+
+  background-image:
+    linear-gradient(
+      rgba(21, 220, 235, 0.055) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      90deg,
+      rgba(21, 220, 235, 0.055) 1px,
+      transparent 1px
+    );
+
+  background-size: 48px 48px;
+
+  mask-image:
+    linear-gradient(
+      to bottom,
+      transparent 5%,
+      rgba(0, 0, 0, 1) 55%,
+      rgba(0, 0, 0, 0.8) 100%
+    );
+
+  animation: gridAppear 4.3s ease forwards;
+
+  pointer-events: none;
+}
+
+@keyframes gridAppear {
+  0%,
+  70% {
+    opacity: 0;
+  }
+
+  84% {
+    opacity: 0.4;
+  }
+
+  100% {
+    opacity: 0.25;
+  }
+}
+
+
+/* =========================================================
+   FINAL WAVES
+========================================================= */
+
+.splash-wave {
+  position: absolute;
+
+  left: -10%;
+  bottom: -70px;
+
+  width: 120%;
+  height: 190px;
+
+  border-top: 1px solid rgba(25, 224, 237, 0.2);
+
+  border-radius: 50%;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  filter:
+    drop-shadow(
+      0 0 8px rgba(15, 210, 225, 0.25)
+    );
+}
+
+.splash-wave-one {
+  transform: rotate(4deg);
+
+  animation: waveAppearOne 4.3s ease forwards;
+}
+
+.splash-wave-two {
+  bottom: -105px;
+
+  transform: rotate(-5deg);
+
+  animation: waveAppearTwo 4.3s ease forwards;
+}
+
+@keyframes waveAppearOne {
+  0%,
+  74% {
+    opacity: 0;
+  }
+
+  88% {
+    opacity: 0.3;
+  }
+
+  100% {
+    opacity: 0.55;
+  }
+}
+
+@keyframes waveAppearTwo {
+  0%,
+  78% {
+    opacity: 0;
+  }
+
+  90% {
+    opacity: 0.2;
+  }
+
+  100% {
+    opacity: 0.4;
+  }
+}
+
+
+/* =========================================================
+   HEART
+   BIGGER + FIXED
+========================================================= */
+
+.splash-heart {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 195px;
+  height: 175px;
+
+  transform: translate(-50%, -50%);
+
+  z-index: 10;
+
+  opacity: 0;
+
+  animation: heartMain 4.3s ease forwards;
+}
+
+.splash-heart svg {
+  width: 100%;
+  height: 100%;
+
+  overflow: visible;
+}
+
+
+/* =========================================================
+   HEART INSIDE
+========================================================= */
+
+.heart-inside {
+  fill: rgba(20, 220, 235, 0.07);
+
+  opacity: 0;
+
+  filter:
+    drop-shadow(
+      0 0 12px rgba(25, 230, 240, 0.5)
+    );
+
+  animation: heartInside 4.3s ease forwards;
+}
+
+
+/* =========================================================
+   HEART OUTLINE
+========================================================= */
+
+.heart-outline {
+  fill: none;
+
+  stroke: url(#heartGradient);
+
+  stroke-width: 3.5;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  filter:
+    drop-shadow(
+      0 0 4px rgba(50, 245, 255, 1)
+    )
+    drop-shadow(
+      0 0 12px rgba(30, 225, 240, 0.9)
+    )
+    drop-shadow(
+      0 0 28px rgba(30, 175, 255, 0.5)
+    );
+
+  stroke-dasharray: 520;
+  stroke-dashoffset: 520;
+
+  animation:
+    drawHeart 0.75s ease-out 0.45s forwards,
+    heartPulse 1.1s ease-in-out 1.35s 3;
+}
+
+@keyframes drawHeart {
+  from {
+    stroke-dashoffset: 520;
+  }
+
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+
+/* =========================================================
+   HEART APPEAR
+========================================================= */
+
+@keyframes heartMain {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.88);
+  }
+
+  10% {
+    opacity: 0;
+    transform: translate(-50%, -50%) scale(0.88);
+  }
+
+  17% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  55% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+
+/* =========================================================
+   HEART FILL
+========================================================= */
+
+@keyframes heartInside {
+  0% {
+    opacity: 0;
+  }
+
+  20% {
+    opacity: 0;
+  }
+
+  32% {
+    opacity: 0.75;
+  }
+
+  55% {
+    opacity: 0.45;
+  }
+
+  100% {
+    opacity: 0.25;
+  }
+}
+
+
+/* =========================================================
+   HEART PULSE
+========================================================= */
+
+@keyframes heartPulse {
+  0% {
+    filter:
+      drop-shadow(0 0 4px rgba(50, 245, 255, 1))
+      drop-shadow(0 0 12px rgba(30, 225, 240, 0.8));
+  }
+
+  50% {
+    filter:
+      drop-shadow(0 0 7px rgba(50, 245, 255, 1))
+      drop-shadow(0 0 24px rgba(30, 225, 240, 1))
+      drop-shadow(0 0 40px rgba(30, 175, 255, 0.45));
+  }
+
+  100% {
+    filter:
+      drop-shadow(0 0 4px rgba(50, 245, 255, 1))
+      drop-shadow(0 0 12px rgba(30, 225, 240, 0.8));
+  }
+}
+
+
+/* =========================================================
+   ECG CONTAINER
+========================================================= */
+
+.splash-ecg {
+  position: absolute;
+
+  left: 50%;
+  top: 50%;
+
+  width: 100%;
+  height: 200px;
+
+  transform: translate(-50%, -50%);
+
+  z-index: 8;
+
+  opacity: 0;
+
+  pointer-events: none;
+
+  animation: ecgContainer 4.3s ease forwards;
+}
+
+
+/* =========================================================
+   ECG SIDES
+========================================================= */
+
+.ecg-side {
+  position: absolute;
+
+  top: 0;
+
+  width: 50%;
+  height: 200px;
+
+  overflow: visible;
+}
+
+.ecg-left {
+  left: 0;
+}
+
+.ecg-right {
+  right: 0;
+}
+
+
+/* =========================================================
+   ECG LINE
+   IMPORTANT:
+   pathLength = 1000
+   Makes animation reliable
+========================================================= */
+
+.ecg-line {
+  fill: none;
+
+  stroke: #27e9f1;
+
+  stroke-width: 2.8;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  filter:
+    drop-shadow(
+      0 0 4px rgba(40, 245, 255, 1)
+    )
+    drop-shadow(
+      0 0 10px rgba(30, 225, 240, 0.85)
+    );
+
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+
+  animation:
+    ecgPasses 4.3s linear forwards;
+}
+
+
+/* =========================================================
+   ECG GLOW
+========================================================= */
+
+.ecg-glow {
+  fill: none;
+
+  stroke: rgba(25, 230, 240, 0.55);
+
+  stroke-width: 10;
+
+  stroke-linecap: round;
+  stroke-linejoin: round;
+
+  filter: blur(5px);
+
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+
+  animation:
+    ecgGlowPasses 4.3s linear forwards;
+}
+
+
+/* =========================================================
+   ECG CONTAINER VISIBILITY
+========================================================= */
+
+@keyframes ecgContainer {
+
+  0% {
+    opacity: 0;
+  }
+
+  18% {
+    opacity: 1;
+  }
+
+  39% {
+    opacity: 0;
+  }
+
+  44% {
+    opacity: 1;
+  }
+
+  69% {
+    opacity: 0;
+  }
+
+  73% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0.7;
+  }
+}
+
+
+/* =========================================================
+   ECG MAIN
+   3 CLEAR PASSES
+========================================================= */
+
+@keyframes ecgPasses {
+
+  /* -------------------------
+     START
+  ------------------------- */
+
+  0% {
+    stroke-dashoffset: 1000;
+    opacity: 0;
+  }
+
+  /* -------------------------
+     PASS #1
+     Heart
+  ------------------------- */
+
+  17% {
+    stroke-dashoffset: 1000;
+    opacity: 0;
+  }
+
+  19% {
+    stroke-dashoffset: 820;
+    opacity: 1;
+  }
+
+  22% {
+    stroke-dashoffset: 600;
+    opacity: 1;
+  }
+
+  25% {
+    stroke-dashoffset: 350;
+    opacity: 1;
+  }
+
+  28% {
+    stroke-dashoffset: 100;
+    opacity: 1;
+  }
+
+  30% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+
+  34% {
+    stroke-dashoffset: 0;
+    opacity: 0.85;
+  }
+
+  39% {
+    stroke-dashoffset: 1000;
+    opacity: 0;
+  }
+
+
+  /* -------------------------
+     PASS #2
+     MedTrack
+  ------------------------- */
+
+  43% {
+    stroke-dashoffset: 1000;
+    opacity: 0;
+  }
+
+  46% {
+    stroke-dashoffset: 820;
+    opacity: 1;
+  }
+
+  49% {
+    stroke-dashoffset: 600;
+    opacity: 1;
+  }
+
+  52% {
+    stroke-dashoffset: 350;
+    opacity: 1;
+  }
+
+  55% {
+    stroke-dashoffset: 100;
+    opacity: 1;
+  }
+
+  58% {
+    stroke-dashoffset: 0;
+    opacity: 1;
+  }
+
+  63% {
+    stroke-dashoffset: 0;
+    opacity: 0.8;
+  }
+
+  69% {
+    stroke-dashoffset: 1000;
+    opacity: 0;
+  }
+
+
+  /* -------------------------
+     PASS #3
+     Tagline
+  ------------------------- */
+
+  72% {
+    stroke-dashoffset: 1000;
+    opacity: 0;
+  }
+
+  75% {
+    stroke-dashoffset: 820;
+    opacity: 0.55;
+  }
+
+  78% {
+    stroke-dashoffset: 600;
+    opacity: 0.7;
+  }
+
+  81% {
+    stroke-dashoffset: 350;
+    opacity: 0.65;
+  }
+
+  84% {
+    stroke-dashoffset: 100;
+    opacity: 0.55;
+  }
+
+  87% {
+    stroke-dashoffset: 0;
+    opacity: 0.55;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0.3;
+  }
+}
+
+
+/* =========================================================
+   ECG GLOW PASSES
+========================================================= */
+
+@keyframes ecgGlowPasses {
+
+  0% {
+    stroke-dashoffset: 1000;
+    opacity: 0;
+  }
+
+  /* PASS #1 */
+
+  17% {
+    stroke-dashoffset: 1000;
+    opacity: 0;
+  }
+
+  20% {
+    stroke-dashoffset: 800;
+    opacity: 0.7;
+  }
+
+  24% {
+    stroke-dashoffset: 500;
+    opacity: 0.85;
+  }
+
+  28% {
+    stroke-dashoffset: 150;
+    opacity: 0.7;
+  }
+
+  30% {
+    stroke-dashoffset: 0;
+    opacity: 0.65;
+  }
+
+  35% {
+    stroke-dashoffset: 0;
+    opacity: 0.4;
+  }
+
+  39% {
+    stroke-dashoffset: 1000;
+    opacity: 0;
+  }
+
+
+  /* PASS #2 */
+
+  43% {
+    stroke-dashoffset: 1000;
+    opacity: 0;
+  }
+
+  47% {
+    stroke-dashoffset: 800;
+    opacity: 0.7;
+  }
+
+  51% {
+    stroke-dashoffset: 500;
+    opacity: 0.85;
+  }
+
+  55% {
+    stroke-dashoffset: 150;
+    opacity: 0.7;
+  }
+
+  58% {
+    stroke-dashoffset: 0;
+    opacity: 0.6;
+  }
+
+  64% {
+    stroke-dashoffset: 0;
+    opacity: 0.35;
+  }
+
+  69% {
+    stroke-dashoffset: 1000;
+    opacity: 0;
+  }
+
+
+  /* PASS #3 */
+
+  72% {
+    stroke-dashoffset: 1000;
+    opacity: 0;
+  }
+
+  76% {
+    stroke-dashoffset: 800;
+    opacity: 0.35;
+  }
+
+  80% {
+    stroke-dashoffset: 500;
+    opacity: 0.45;
+  }
+
+  84% {
+    stroke-dashoffset: 150;
+    opacity: 0.35;
+  }
+
+  87% {
+    stroke-dashoffset: 0;
+    opacity: 0.3;
+  }
+
+  100% {
+    stroke-dashoffset: 0;
+    opacity: 0.18;
+  }
+}
+
+
+/* =========================================================
+   LOGO
+   MOVED HIGHER
+========================================================= */
+
+.splash-logo {
+  position: absolute;
+
+  left: 50%;
+
+  top: calc(50% - 205px);
+
+  transform: translate(-50%, 20px);
+
+  z-index: 15;
+
+  opacity: 0;
+
+  white-space: nowrap;
+
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  font-size: clamp(48px, 5.8vw, 70px);
+
+  font-weight: 700;
+
+  line-height: 1;
+
+  letter-spacing: -3px;
+
+  animation: logoMain 4.3s ease forwards;
+}
+
+
+/* =========================================================
+   MED
+========================================================= */
+
+.logo-med {
+  color: #ffffff;
+
+  text-shadow:
+    0 0 10px rgba(255, 255, 255, 0.08);
+}
+
+
+/* =========================================================
+   TRACK
+========================================================= */
+
+.logo-track {
+  color: #19dce8;
+
+  text-shadow:
+    0 0 7px rgba(25, 220, 232, 0.65),
+    0 0 18px rgba(25, 220, 232, 0.35);
+}
+
+
+/* =========================================================
+   LOGO APPEAR
+========================================================= */
+
+@keyframes logoMain {
+
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 20px);
+  }
+
+  54% {
+    opacity: 0;
+    transform: translate(-50%, 20px);
+  }
+
+  59% {
+    opacity: 0.3;
+    transform: translate(-50%, 8px);
+  }
+
+  63% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+
+/* =========================================================
+   TAGLINE
+========================================================= */
+
+.splash-tagline {
+  position: absolute;
+
+  left: 50%;
+
+  top: calc(50% + 105px);
+
+  transform: translate(-50%, 12px);
+
+  z-index: 16;
+
+  opacity: 0;
+
+  white-space: nowrap;
+
+  color: #e2f0f2;
+
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  font-size: clamp(16px, 2vw, 22px);
+
+  font-weight: 400;
+
+  letter-spacing: 0.2px;
+
+  text-shadow:
+    0 0 10px rgba(255, 255, 255, 0.08);
+
+  animation: taglineMain 4.3s ease forwards;
+}
+
+
+/* =========================================================
+   TAGLINE APPEAR
+========================================================= */
+
+@keyframes taglineMain {
+
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 12px);
+  }
+
+  70% {
+    opacity: 0;
+    transform: translate(-50%, 12px);
+  }
+
+  77% {
+    opacity: 0.35;
+    transform: translate(-50%, 5px);
+  }
+
+  81% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
+}
+
+
+/* =========================================================
+   FINAL SUBTITLE
+========================================================= */
+
+.splash-subtitle {
+  position: absolute;
+
+  left: 50%;
+
+  top: calc(50% + 150px);
+
+  transform: translate(-50%, 12px);
+
+  z-index: 16;
+
+  opacity: 0;
+
+  white-space: nowrap;
+
+  color: #c3d9dd;
+
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  font-size: clamp(13px, 1.5vw, 17px);
+
+  font-weight: 400;
+
+  letter-spacing: 0.1px;
+
+  animation: subtitleMain 4.3s ease forwards;
+}
+
+
+/* =========================================================
+   SUBTITLE APPEAR
+========================================================= */
+
+@keyframes subtitleMain {
+
+  0% {
+    opacity: 0;
+    transform: translate(-50%, 12px);
+  }
+
+  82% {
+    opacity: 0;
+    transform: translate(-50%, 12px);
+  }
+
+  88% {
+    opacity: 0.4;
+    transform: translate(-50%, 5px);
+  }
+
+  92% {
+    opacity: 0.9;
+    transform: translate(-50%, 0);
+  }
+
+  100% {
+    opacity: 0.9;
+    transform: translate(-50%, 0);
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 700px) {
+
+  .splash-heart {
+    width: 145px;
+    height: 130px;
+  }
+
+  .splash-ecg {
+    width: 140%;
+    height: 170px;
+  }
+
+  .ecg-side {
+    height: 170px;
+  }
+
+  .splash-logo {
+    top: calc(50% - 140px);
+
+    font-size: 45px;
+
+    letter-spacing: -2px;
+  }
+
+  .splash-tagline {
+    top: calc(50% + 85px);
+
+    font-size: 15px;
+  }
+
+  .splash-subtitle {
+    top: calc(50% + 120px);
+
+    font-size: 12px;
+  }
+
+  .splash-grid {
+    background-size: 35px 35px;
+  }
+}
+
+
+/* =========================================================
+   SMALL MOBILE
+========================================================= */
+
+@media (max-width: 420px) {
+
+  .splash-heart {
+    width: 125px;
+    height: 112px;
+  }
+
+  .splash-ecg {
+    width: 160%;
+  }
+
+  .splash-logo {
+    font-size: 39px;
+  }
+
+  .splash-tagline {
+    font-size: 14px;
+  }
+
+  .splash-subtitle {
+    font-size: 11px;
+  }
+}

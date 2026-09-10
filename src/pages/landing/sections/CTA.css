@@ -1,0 +1,307 @@
+/* =========================
+   CTA SECTION
+========================= */
+
+.cta-section {
+  padding: 30px 0 70px;
+}
+
+.cta-card {
+  position: relative;
+
+  width: min(1100px, calc(100% - 40px));
+  min-height: 165px;
+
+  margin: 0 auto;
+
+  display: flex;
+  align-items: center;
+
+  padding: 28px 38px;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(21, 105, 130, 0.45);
+  border-radius: 13px;
+
+  background:
+    linear-gradient(
+      105deg,
+      rgba(3, 23, 36, 0.98),
+      rgba(3, 27, 41, 0.95)
+    );
+
+  box-shadow:
+    0 0 30px rgba(0, 210, 230, 0.035);
+}
+
+/* =========================
+   WAVES
+========================= */
+
+.cta-wave {
+  position: absolute;
+
+  left: -5%;
+  width: 110%;
+  height: 100px;
+
+  pointer-events: none;
+
+  border-top: 1px solid rgba(0, 210, 230, 0.22);
+
+  opacity: 0.65;
+}
+
+.cta-wave-one {
+  bottom: -55px;
+
+  transform: rotate(-3deg);
+
+  border-radius: 50%;
+  box-shadow:
+    0 -8px 25px rgba(0, 210, 230, 0.08);
+}
+
+.cta-wave-two {
+  bottom: -75px;
+
+  transform: rotate(3deg);
+
+  border-radius: 50%;
+
+  opacity: 0.35;
+}
+
+/* =========================
+   HEART
+========================= */
+
+.cta-icon {
+  position: relative;
+  z-index: 2;
+
+  width: 105px;
+  height: 105px;
+
+  flex-shrink: 0;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-right: 45px;
+
+  border: 1px solid rgba(11, 211, 223, 0.55);
+  border-radius: 50%;
+
+  color: #0bd3df;
+
+  background: rgba(0, 180, 200, 0.04);
+
+  box-shadow:
+    0 0 20px rgba(11, 211, 223, 0.08),
+    inset 0 0 20px rgba(11, 211, 223, 0.04);
+
+  transition:
+    transform 0.4s ease,
+    box-shadow 0.4s ease;
+}
+
+.cta-card:hover .cta-icon {
+  transform: scale(1.06);
+
+  box-shadow:
+    0 0 28px rgba(11, 211, 223, 0.2),
+    inset 0 0 25px rgba(11, 211, 223, 0.06);
+}
+
+/* =========================
+   CONTENT
+========================= */
+
+.cta-content {
+  position: relative;
+  z-index: 2;
+
+  flex: 1;
+}
+
+.cta-content h2 {
+  margin: 0 0 6px;
+
+  color: #f2f7fa;
+
+  font-size: 27px;
+  line-height: 1.15;
+
+  font-weight: 600;
+
+  letter-spacing: -0.6px;
+}
+
+.cta-content h2 span {
+  color: #0bd3df;
+}
+
+.cta-content p {
+  margin: 0;
+
+  color: #aebfc9;
+
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+.cta-actions {
+  position: relative;
+  z-index: 2;
+
+  width: 175px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 12px;
+
+  margin-left: 35px;
+}
+
+.cta-button {
+  width: 175px;
+  height: 43px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  gap: 10px;
+
+  border-radius: 6px;
+
+  text-decoration: none;
+
+  font-size: 13px;
+  font-weight: 500;
+
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.cta-primary {
+  color: #06151d;
+
+  background: #0bd3df;
+
+  box-shadow:
+    0 5px 18px rgba(11, 211, 223, 0.18);
+}
+
+.cta-primary:hover {
+  transform: translateY(-2px);
+
+  background: #19dce7;
+
+  box-shadow:
+    0 8px 24px rgba(11, 211, 223, 0.28);
+}
+
+.cta-secondary {
+  color: #e7f0f3;
+
+  border: 1px solid rgba(11, 211, 223, 0.35);
+
+  background: rgba(3, 24, 36, 0.65);
+}
+
+.cta-secondary:hover {
+  transform: translateY(-2px);
+
+  border-color: rgba(11, 211, 223, 0.7);
+
+  background: rgba(11, 211, 223, 0.07);
+}
+
+/* =========================
+   TABLET
+========================= */
+
+@media (max-width: 850px) {
+  .cta-card {
+    padding: 28px;
+  }
+
+  .cta-icon {
+    width: 85px;
+    height: 85px;
+
+    margin-right: 28px;
+  }
+
+  .cta-content h2 {
+    font-size: 23px;
+  }
+
+  .cta-actions {
+    width: 150px;
+    margin-left: 20px;
+  }
+
+  .cta-button {
+    width: 150px;
+  }
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 650px) {
+  .cta-section {
+    padding: 25px 0 50px;
+  }
+
+  .cta-card {
+    width: calc(100% - 28px);
+
+    flex-direction: column;
+
+    text-align: center;
+
+    padding: 30px 20px;
+  }
+
+  .cta-icon {
+    width: 85px;
+    height: 85px;
+
+    margin: 0 0 20px;
+  }
+
+  .cta-content h2 {
+    font-size: 23px;
+  }
+
+  .cta-content p {
+    font-size: 12px;
+  }
+
+  .cta-actions {
+    width: 100%;
+
+    margin: 24px 0 0;
+
+    align-items: center;
+  }
+
+  .cta-button {
+    width: 100%;
+    max-width: 280px;
+  }
+}
